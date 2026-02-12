@@ -7,3 +7,7 @@ def filter_sensitive_ports(data):
     sensitive_ports = ('22', '23', '3389')
     sensitive_ports_list = filter(lambda line: line[3] in sensitive_ports, data)
     return list(sensitive_ports_list)
+
+def filter_large_packets(data):
+    large_packets_list = filter(lambda line: int(line[5]) > 5000, data)
+    return list(large_packets_list)
